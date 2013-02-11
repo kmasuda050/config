@@ -1,0 +1,54 @@
+# エスケープシーケンス変更 C-a -> C-j
+escape ^jj
+
+# 起動時メッセージOFF
+startup_message off
+
+# 視覚ベルOFF(エラー時の点滅をなくす)
+vbell off
+
+# 下部に表示されるバーの設定
+hardstatus alwayslastline "[%y/%m/%d %02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+# history buffer の設定 (3000 line)
+defscrollback 3000
+
+# 回線切断時、自動でデタッチする
+autodetach on
+
+# terminal 指定 ( for centos )
+term xterm
+
+# for vim
+# tera term である場合、以下の２行の設定をすると256色で見える
+# 256色                             'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# screen起動時の画面調整をなくす    'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+# vimの背景色が変にならないようにする
+defbce "on"
+
+# etc
+# ログ出力
+# logfile "/home/matsuko/.screen/screen-%Y%m%d-%n.log"
+# deflog on
+
+# キーバインド
+# 画面リサイズ
+# bind r eval 'echo "Resize window"' 'command -c resize'
+# bind -c resize ^]  command
+# bind -c resize j eval 'resize +1' 'command -c resize'
+# bind -c resize k eval 'resize -1' 'command -c resize'
+# centosで消されているキーバインド
+# bind q quit
+# 縦分割(tscreen, screen縦分割版)
+# bind o split -v
+
+# 新しいウィンドウが開くときのディレクトリを設定
+# chdir $HOME
+# screen を実行した時に、デフォルトで開くスクリーン設定
+screen 1
+title run
+screen 0
+title vim 
+

@@ -1,0 +1,10 @@
+.vim/
+.bashrc
+.bash_profile
+.bash_history
+.bash_logout
+.viminfo
+.unite/
+neoagent
+.vim-fuf-data/
+.cache/
