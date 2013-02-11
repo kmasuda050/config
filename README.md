@@ -1,0 +1,4 @@
+config
+======
+
+vimrc, screenrc, etc...
