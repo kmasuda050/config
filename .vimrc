@@ -1,47 +1,50 @@
-set nocompatible
+" https://github.com/Shougo/dein.vim
+" curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+" sh ./installer.sh ~/.vim/dein
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+if dein#load_state('~/.vim/dein')
+  call dein#begin('~/.vim/dein')
+
+  call dein#add('Shougo/vimproc')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('Lokaltog/vim-easymotion')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('h1mesuke/vim-alignta')
+  call dein#add('vim-scripts/L9')
+  call dein#add('vim-scripts/FuzzyFinder')
+  call dein#add('vim-scripts/rails.vim')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/neocomplcache')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('ujihisa/unite-colorscheme')
+  call dein#add('Lokaltog/vim-powerline')
+  call dein#add('vim-scripts/ZoomWin')
+  call dein#add('vim-scripts/neco-look')
+  call dein#add('vim-scripts/ack.vim')
+  call dein#add('vim-scripts/errormarker.vim')
+  call dein#add('vim-scripts/taglist.vim')
+  call dein#add('vim-scripts/dbext.vim')
+  call dein#add('glidenote/memolist.vim')
+  call dein#add('kien/ctrlp.vim')
+  call dein#add('jnurmine/Zenburn')
+  call dein#add('nanotech/jellybeans.vim')
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'rails.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'ZoomWin'
-NeoBundle 'neco-look'
-NeoBundle 'ack.vim'
-NeoBundle 'errormarker.vim'
-NeoBundle 'taglist.vim'
-NeoBundle 'dbext.vim'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'kien/ctrlp.vim'
-" NeoBundle 'vim-ruby/vim-ruby'
-
-" colorscheme
-NeoBundle 'jnurmine/Zenburn'
-NeoBundle 'nanotech/jellybeans.vim'
-
 filetype plugin indent on
+syntax enable
 
-" Installation check.
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
 
 " My Setting
 set t_Co=256
