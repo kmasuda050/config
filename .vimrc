@@ -15,7 +15,6 @@ if dein#load_state('~/.vim/dein')
   call dein#add('scrooloose/nerdtree')
   call dein#add('h1mesuke/vim-alignta')
   call dein#add('vim-scripts/L9')
-  call dein#add('vim-scripts/FuzzyFinder')
   call dein#add('vim-scripts/rails.vim')
   call dein#add('thinca/vim-quickrun')
   call dein#add('Shougo/unite.vim')
@@ -34,6 +33,8 @@ if dein#load_state('~/.vim/dein')
   call dein#add('kien/ctrlp.vim')
   call dein#add('jnurmine/Zenburn')
   call dein#add('nanotech/jellybeans.vim')
+  call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim')
 
   call dein#end()
   call dein#save_state()
@@ -144,8 +145,8 @@ let g:rubycomplete_rails=1
 " enable FufMruFile
 let g:fuf_modesDisable = ['mrucmd']
 let g:fuf_mrufile_maxItem = 10000
-nmap fb :FufBuffer<CR>
-nmap ff :FufFile **/<CR>
+nmap fb :Buffers<CR>
+nmap ff :Files<CR>
 
 " neocomplecache "{{{2
 " http://d.hatena.ne.jp/cooldaemon/20090807/1249644264
