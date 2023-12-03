@@ -1,50 +1,70 @@
-" https://github.com/Shougo/dein.vim
-" curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-" sh ./installer.sh ~/.vim/dein
-if &compatible
-  set nocompatible
+" Ward off unexpected things that your distro might have made, as
+" well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+" Set Dein base path (required)
+let s:dein_base = '/home/kmasuda/.cache/dein'
+
+" Set Dein source path (required)
+let s:dein_src = '/home/kmasuda/.cache/dein/repos/github.com/Shougo/dein.vim'
+
+" Set Dein runtime path (required)
+execute 'set runtimepath+=' . s:dein_src
+
+" Call Dein initialization (required)
+call dein#begin(s:dein_base)
+
+call dein#add(s:dein_src)
+
+" Your plugins go here:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/vimproc')
+call dein#add('tpope/vim-fugitive')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('scrooloose/nerdtree')
+call dein#add('h1mesuke/vim-alignta')
+call dein#add('vim-scripts/L9')
+call dein#add('vim-scripts/rails.vim')
+call dein#add('thinca/vim-quickrun')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('ujihisa/unite-colorscheme')
+call dein#add('Lokaltog/vim-powerline')
+call dein#add('vim-scripts/ZoomWin')
+call dein#add('vim-scripts/neco-look')
+call dein#add('vim-scripts/ack.vim')
+call dein#add('vim-scripts/errormarker.vim')
+call dein#add('vim-scripts/taglist.vim')
+call dein#add('vim-scripts/dbext.vim')
+call dein#add('glidenote/memolist.vim')
+call dein#add('kien/ctrlp.vim')
+call dein#add('jnurmine/Zenburn')
+call dein#add('nanotech/jellybeans.vim')
+call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+call dein#add('junegunn/fzf.vim')
+call dein#add('github/copilot.vim')
+
+" Finish Dein initialization (required)
+call dein#end()
+
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+if has('filetype')
+  filetype indent plugin on
 endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.vim/dein')
-  call dein#begin('~/.vim/dein')
-
-  call dein#add('Shougo/vimproc')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('Lokaltog/vim-easymotion')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('h1mesuke/vim-alignta')
-  call dein#add('vim-scripts/L9')
-  call dein#add('vim-scripts/rails.vim')
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/neocomplcache')
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('ujihisa/unite-colorscheme')
-  call dein#add('Lokaltog/vim-powerline')
-  call dein#add('vim-scripts/ZoomWin')
-  call dein#add('vim-scripts/neco-look')
-  call dein#add('vim-scripts/ack.vim')
-  call dein#add('vim-scripts/errormarker.vim')
-  call dein#add('vim-scripts/taglist.vim')
-  call dein#add('vim-scripts/dbext.vim')
-  call dein#add('glidenote/memolist.vim')
-  call dein#add('kien/ctrlp.vim')
-  call dein#add('jnurmine/Zenburn')
-  call dein#add('nanotech/jellybeans.vim')
-  call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim')
-
-  call dein#end()
-  call dein#save_state()
+" Enable syntax highlighting
+if has('syntax')
+  syntax on
 endif
 
-filetype plugin indent on
-syntax enable
-
+" Uncomment if you want to install not-installed plugins on startup.
 if dein#check_install()
-  call dein#install()
+ call dein#install()
 endif
 
 " My Setting
